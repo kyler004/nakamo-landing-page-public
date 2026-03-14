@@ -23,7 +23,7 @@ const testimonials = [
     id: 3,
     name: 'Syavera Romanad',
     role: 'Working Mom',
-    text: 'I\'ve been ordering for my whole family for 3 months now. The kids love it, my husband loves it, and I love how easy it is to order. Truly a game changer for busy families!',
+    text: "I've been ordering for my whole family for 3 months now. The kids love it, my husband loves it, and I love how easy it is to order. Truly a game changer for busy families!",
     rating: 5,
     initials: 'SR',
     color: '#9C27B0',
@@ -32,7 +32,7 @@ const testimonials = [
     id: 4,
     name: 'David Chen',
     role: 'Software Engineer',
-    text: 'Perfect for my busy schedule. The food is always fresh, the packaging is eco-friendly, and the delivery is lightning fast. I\'ve recommended Nakamo to my entire team!',
+    text: "Perfect for my busy schedule. The food is always fresh, the packaging is eco-friendly, and the delivery is lightning fast. I've recommended Nakamo to my entire team!",
     rating: 5,
     initials: 'DC',
     color: '#FF9800',
@@ -81,57 +81,25 @@ export default function Testimonials() {
 
   const scroll = (dir: 'left' | 'right') => {
     if (!scrollRef.current) return;
-    scrollRef.current.scrollBy({ left: dir === 'left' ? -360 : 360, behavior: 'smooth' });
+    scrollRef.current.scrollBy({ left: dir === 'left' ? -324 : 324, behavior: 'smooth' });
   };
 
   return (
     <section
       id="testimonials"
       ref={sectionRef}
-      style={{
-        padding: '100px 0',
-        background: '#FFF5F4',
-        overflow: 'hidden',
-      }}
+      style={{ padding: '100px 0', background: '#FFF5F4', overflow: 'hidden' }}
     >
-      <div
-        style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          padding: '0 40px',
-          display: 'flex',
-          gap: '60px',
-          alignItems: 'flex-start',
-        }}
-      >
+      <div className="testimonial-section-inner">
         {/* Left: heading + arrows */}
-        <div style={{ flex: '0 0 300px', paddingTop: '8px' }}>
+        <div className="testimonial-left">
           <span
-            className="reveal"
-            style={{
-              fontFamily: 'Poppins, sans-serif',
-              fontWeight: 600,
-              fontSize: '12px',
-              color: '#F07167',
-              textTransform: 'uppercase',
-              letterSpacing: '3px',
-              display: 'block',
-              marginBottom: '12px',
-            }}
+            className="reveal section-label"
+            style={{ display: 'block', marginBottom: '12px' }}
           >
             Testimonial
           </span>
-          <h2
-            className="reveal reveal-delay-1"
-            style={{
-              fontFamily: 'Poppins, sans-serif',
-              fontWeight: 700,
-              fontSize: '38px',
-              lineHeight: 1.25,
-              color: '#1A1A1A',
-              marginBottom: '20px',
-            }}
-          >
+          <h2 className="reveal reveal-delay-1 testimonial-headline">
             What Are People<br />
             Saying{' '}
             <span style={{ color: '#F07167' }}>About Us</span>
@@ -140,11 +108,8 @@ export default function Testimonials() {
           <p
             className="reveal reveal-delay-1"
             style={{
-              fontFamily: 'Poppins, sans-serif',
-              fontSize: '14px',
-              color: '#888',
-              lineHeight: 1.8,
-              marginBottom: '40px',
+              fontFamily: 'Poppins, sans-serif', fontSize: '14px',
+              color: '#888', lineHeight: 1.8, marginBottom: '40px',
             }}
           >
             Don't just take our word for it — hear from our happy customers who've made Nakamo a part of their daily routine.
@@ -156,16 +121,12 @@ export default function Testimonials() {
               disabled={!canScrollLeft}
               title="Previous"
               style={{
-                width: '48px',
-                height: '48px',
-                borderRadius: '50%',
+                width: '48px', height: '48px', borderRadius: '50%',
                 border: `2px solid ${canScrollLeft ? '#F07167' : '#e5e5e5'}`,
                 background: canScrollLeft ? '#F07167' : '#fff',
                 color: canScrollLeft ? '#fff' : '#ccc',
                 cursor: canScrollLeft ? 'pointer' : 'default',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
                 transition: 'all 0.3s ease',
               }}
             >
@@ -178,16 +139,12 @@ export default function Testimonials() {
               disabled={!canScrollRight}
               title="Next"
               style={{
-                width: '48px',
-                height: '48px',
-                borderRadius: '50%',
+                width: '48px', height: '48px', borderRadius: '50%',
                 border: `2px solid ${canScrollRight ? '#F07167' : '#e5e5e5'}`,
                 background: canScrollRight ? '#F07167' : '#fff',
                 color: canScrollRight ? '#fff' : '#ccc',
                 cursor: canScrollRight ? 'pointer' : 'default',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
                 transition: 'all 0.3s ease',
               }}
             >
@@ -202,30 +159,20 @@ export default function Testimonials() {
         <div
           ref={scrollRef}
           onScroll={updateScrollState}
-          className="testimonials-scroll"
-          style={{
-            flex: 1,
-            display: 'flex',
-            gap: '24px',
-            overflowX: 'auto',
-            paddingBottom: '20px',
-            scrollSnapType: 'x mandatory',
-            WebkitOverflowScrolling: 'touch',
-          }}
+          className="testimonial-right testimonials-scroll"
         >
           {testimonials.map((t, i) => (
             <div
               key={t.id}
               className={`reveal reveal-delay-${i + 1}`}
               style={{
-                minWidth: '300px',
-                maxWidth: '300px',
-                background: '#fff',
-                borderRadius: '20px',
+                minWidth: '300px', maxWidth: '300px',
+                background: '#fff', borderRadius: '20px',
                 padding: '28px',
                 boxShadow: '0 4px 24px rgba(0,0,0,0.07)',
                 scrollSnapAlign: 'start',
                 transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                flexShrink: 0,
               }}
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLElement).style.transform = 'translateY(-4px)';
@@ -239,49 +186,31 @@ export default function Testimonials() {
               <div style={{ marginBottom: '16px' }}>
                 <StarRating rating={t.rating} />
               </div>
-
-              <p
-                style={{
-                  fontFamily: 'Poppins, sans-serif',
-                  fontSize: '14px',
-                  color: '#555',
-                  lineHeight: 1.8,
-                  marginBottom: '24px',
-                  fontStyle: 'italic',
-                }}
-              >
+              <p style={{
+                fontFamily: 'Poppins, sans-serif', fontSize: '14px',
+                color: '#555', lineHeight: 1.8,
+                marginBottom: '24px', fontStyle: 'italic',
+              }}>
                 "{t.text}"
               </p>
-
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                 {t.avatar ? (
                   <img
                     src={t.avatar}
                     alt={t.name}
                     style={{
-                      width: '46px',
-                      height: '46px',
-                      borderRadius: '50%',
-                      objectFit: 'cover',
-                      border: '2px solid #F07167',
+                      width: '46px', height: '46px', borderRadius: '50%',
+                      objectFit: 'cover', border: '2px solid #F07167',
                     }}
                   />
                 ) : (
                   <div
                     style={{
-                      width: '46px',
-                      height: '46px',
-                      borderRadius: '50%',
+                      width: '46px', height: '46px', borderRadius: '50%',
                       background: t.color || '#F07167',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: '#fff',
-                      fontFamily: 'Poppins, sans-serif',
-                      fontWeight: 700,
-                      fontSize: '15px',
-                      flexShrink: 0,
-                      border: '2px solid transparent',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      color: '#fff', fontFamily: 'Poppins, sans-serif',
+                      fontWeight: 700, fontSize: '15px', flexShrink: 0,
                     }}
                   >
                     {t.initials}

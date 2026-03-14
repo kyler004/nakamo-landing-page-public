@@ -29,7 +29,7 @@ const services = [
       </svg>
     ),
     title: 'Easy to Order',
-    description: 'Order in just a few taps. Browse our menu, select your meal, and we\'ll handle the rest. Simple, quick, delicious.',
+    description: "Order in just a few taps. Browse our menu, select your meal, and we'll handle the rest. Simple, quick, delicious.",
   },
 ];
 
@@ -52,50 +52,18 @@ export default function Services() {
   }, []);
 
   return (
-    <section
-      id="services"
-      style={{
-        padding: '100px 40px',
-        background: '#FFF5F4',
-      }}
-    >
-      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+    <section id="services" style={{ background: '#FFF5F4', padding: '100px 0' }}>
+      <div className="section-container" style={{ paddingTop: 0, paddingBottom: 0 }}>
         {/* Section header */}
-        <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-          <span
-            style={{
-              fontFamily: 'Poppins, sans-serif',
-              fontWeight: 600,
-              fontSize: '12px',
-              color: '#F07167',
-              textTransform: 'uppercase',
-              letterSpacing: '3px',
-              display: 'block',
-              marginBottom: '12px',
-            }}
-          >
-            Services
-          </span>
-          <h2
-            style={{
-              fontFamily: 'Poppins, sans-serif',
-              fontWeight: 700,
-              fontSize: '40px',
-              color: '#1A1A1A',
-            }}
-          >
+        <div className="section-header">
+          <span className="section-label">Services</span>
+          <h2 className="section-title">
             Our <span style={{ color: '#F07167' }}>Awesome</span> Services
           </h2>
         </div>
 
         {/* Cards */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: '30px',
-          }}
-        >
+        <div className="cards-grid">
           {services.map((service, i) => (
             <div
               key={service.id}
@@ -108,7 +76,6 @@ export default function Services() {
                 textAlign: 'center',
                 boxShadow: '0 4px 24px rgba(0,0,0,0.06)',
                 transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                cursor: 'default',
               }}
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLElement).style.transform = 'translateY(-6px)';
@@ -119,47 +86,23 @@ export default function Services() {
                 (e.currentTarget as HTMLElement).style.boxShadow = '0 4px 24px rgba(0,0,0,0.06)';
               }}
             >
-              {/* Icon */}
               <div
                 style={{
-                  width: '60px',
-                  height: '60px',
-                  background: '#F07167',
-                  borderRadius: '16px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
+                  width: '60px', height: '60px', background: '#F07167',
+                  borderRadius: '16px', display: 'flex',
+                  alignItems: 'center', justifyContent: 'center',
                   margin: '0 auto 24px',
                   boxShadow: '0 8px 20px rgba(240,113,103,0.35)',
                 }}
               >
                 {service.icon}
               </div>
-
-              <h3
-                style={{
-                  fontFamily: 'Poppins, sans-serif',
-                  fontWeight: 700,
-                  fontSize: '19px',
-                  color: '#1A1A1A',
-                  marginBottom: '14px',
-                }}
-              >
+              <h3 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700, fontSize: '19px', color: '#1A1A1A', marginBottom: '14px' }}>
                 {service.title}
               </h3>
-
-              <p
-                style={{
-                  fontFamily: 'Poppins, sans-serif',
-                  fontSize: '14px',
-                  color: '#888',
-                  lineHeight: 1.8,
-                  marginBottom: '24px',
-                }}
-              >
+              <p style={{ fontFamily: 'Poppins, sans-serif', fontSize: '14px', color: '#888', lineHeight: 1.8, marginBottom: '24px' }}>
                 {service.description}
               </p>
-
               <button className="btn-primary" style={{ width: '120px', height: '42px', fontSize: '13px' }}>
                 Learn More
               </button>

@@ -28,75 +28,22 @@ export default function About() {
   ];
 
   return (
-    <section
-      id="about"
-      style={{
-        padding: '100px 40px',
-        maxWidth: '1200px',
-        margin: '0 auto',
-      }}
-    >
-      <div ref={sectionRef} style={{ display: 'flex', alignItems: 'center', gap: '80px' }}>
-        {/* Left: Circular Image (Z-pattern start) */}
-        <div
-          style={{
-            flex: '0 0 45%',
-            position: 'relative',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
-          {/* Background blob */}
-          <div
-            style={{
-              position: 'absolute',
-              width: '440px',
-              height: '440px',
-              borderRadius: '50%',
-              background: 'radial-gradient(circle, #FFF5F4 0%, #FFE8E6 100%)',
-            }}
-          />
-          <div
-            style={{
-              position: 'absolute',
-              width: '480px',
-              height: '480px',
-              borderRadius: '50%',
-              border: '2px dashed rgba(240, 113, 103, 0.2)',
-            }}
-          />
+    <section id="about" className="section-container">
+      <div ref={sectionRef} className="about-inner">
+
+        {/* Left: Circular Image */}
+        <div className="about-image-col">
+          <div className="about-circle-bg" />
+          <div className="about-circle-dashed" />
+
           <img
             src={aboutImg}
             alt="Healthy meal for customer"
-            className="reveal float-animation"
-            style={{
-              width: '400px',
-              height: '400px',
-              borderRadius: '50%',
-              objectFit: 'cover',
-              position: 'relative',
-              zIndex: 1,
-              boxShadow: '0 20px 60px rgba(240, 113, 103, 0.2)',
-            }}
+            className="about-img reveal float-animation"
           />
 
           {/* Stats floating card */}
-          <div
-            className="reveal reveal-delay-2"
-            style={{
-              position: 'absolute',
-              bottom: '-20px',
-              right: '-10px',
-              background: '#fff',
-              borderRadius: '20px',
-              padding: '20px 24px',
-              boxShadow: '0 10px 40px rgba(0,0,0,0.1)',
-              display: 'flex',
-              gap: '24px',
-              zIndex: 2,
-            }}
-          >
+          <div className="about-stats-card reveal reveal-delay-2">
             {stats.map((stat, i) => (
               <div key={i} style={{ textAlign: 'center' }}>
                 <div style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700, fontSize: '20px', color: '#F07167' }}>
@@ -110,8 +57,8 @@ export default function About() {
           </div>
         </div>
 
-        {/* Right: Text content (Z-pattern end) */}
-        <div style={{ flex: 1 }}>
+        {/* Right: Text content */}
+        <div className="about-text-col">
           <div className="reveal" style={{ marginBottom: '12px' }}>
             <span
               style={{
@@ -131,17 +78,7 @@ export default function About() {
             </span>
           </div>
 
-          <h2
-            className="reveal reveal-delay-1"
-            style={{
-              fontFamily: 'Poppins, sans-serif',
-              fontWeight: 700,
-              fontSize: '42px',
-              lineHeight: 1.2,
-              color: '#1A1A1A',
-              marginBottom: '24px',
-            }}
-          >
+          <h2 className="reveal reveal-delay-1 about-headline">
             Healthy meal for{' '}
             <span style={{ color: '#F07167' }}>customer</span>
           </h2>
@@ -149,11 +86,8 @@ export default function About() {
           <p
             className="reveal reveal-delay-2"
             style={{
-              fontFamily: 'Poppins, sans-serif',
-              fontSize: '15px',
-              color: '#888',
-              lineHeight: 1.9,
-              marginBottom: '24px',
+              fontFamily: 'Poppins, sans-serif', fontSize: '15px', color: '#888',
+              lineHeight: 1.9, marginBottom: '24px',
             }}
           >
             Our passion is bringing you the freshest, most nutritious meals that don't compromise on taste. Every dish is crafted by our expert chefs using locally-sourced, organic ingredients — no artificial preservatives, no MSG, just pure flavour.
@@ -162,11 +96,8 @@ export default function About() {
           <p
             className="reveal reveal-delay-2"
             style={{
-              fontFamily: 'Poppins, sans-serif',
-              fontSize: '15px',
-              color: '#888',
-              lineHeight: 1.9,
-              marginBottom: '36px',
+              fontFamily: 'Poppins, sans-serif', fontSize: '15px', color: '#888',
+              lineHeight: 1.9, marginBottom: '36px',
             }}
           >
             We believe that eating healthy should be a joy, not a chore. That's why we combine traditional recipes with modern nutritional science to create meals that nourish your body and delight your taste buds.
@@ -178,14 +109,9 @@ export default function About() {
               <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                 <div
                   style={{
-                    width: '22px',
-                    height: '22px',
-                    borderRadius: '50%',
-                    background: '#F07167',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexShrink: 0,
+                    width: '22px', height: '22px', borderRadius: '50%',
+                    background: '#F07167', display: 'flex',
+                    alignItems: 'center', justifyContent: 'center', flexShrink: 0,
                   }}
                 >
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="white">
@@ -199,13 +125,9 @@ export default function About() {
             ))}
           </div>
 
-          <div className="reveal reveal-delay-3" style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-            <a href="#menu" className="btn-primary">
-              Order Now
-            </a>
-            <a href="#" className="btn-outline">
-              Read More
-            </a>
+          <div className="reveal reveal-delay-3" style={{ display: 'flex', gap: '16px', alignItems: 'center', flexWrap: 'wrap' }}>
+            <a href="#menu" className="btn-primary">Order Now</a>
+            <a href="#" className="btn-outline">Read More</a>
           </div>
         </div>
       </div>

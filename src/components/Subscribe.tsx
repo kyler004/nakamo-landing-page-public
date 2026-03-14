@@ -31,37 +31,21 @@ export default function Subscribe() {
   return (
     <section
       ref={sectionRef}
-      style={{
-        padding: '100px 40px',
-        background: '#fff',
-        textAlign: 'center',
-      }}
+      style={{ padding: '100px 20px', background: '#fff', textAlign: 'center' }}
     >
       <div style={{ maxWidth: '640px', margin: '0 auto' }}>
         <span
-          className="reveal"
-          style={{
-            fontFamily: 'Poppins, sans-serif',
-            fontWeight: 600,
-            fontSize: '12px',
-            color: '#F07167',
-            textTransform: 'uppercase',
-            letterSpacing: '3px',
-            display: 'block',
-            marginBottom: '16px',
-          }}
+          className="reveal section-label"
+          style={{ display: 'block', marginBottom: '16px' }}
         >
           Newsletter
         </span>
         <h2
           className="reveal reveal-delay-1"
           style={{
-            fontFamily: 'Poppins, sans-serif',
-            fontWeight: 700,
-            fontSize: '38px',
-            color: '#1A1A1A',
-            lineHeight: 1.2,
-            marginBottom: '16px',
+            fontFamily: 'Poppins, sans-serif', fontWeight: 700,
+            fontSize: 'clamp(24px, 5vw, 38px)',
+            color: '#1A1A1A', lineHeight: 1.2, marginBottom: '16px',
           }}
         >
           Subscribe to get the{' '}
@@ -70,11 +54,8 @@ export default function Subscribe() {
         <p
           className="reveal reveal-delay-1"
           style={{
-            fontFamily: 'Poppins, sans-serif',
-            fontSize: '15px',
-            color: '#888',
-            lineHeight: 1.8,
-            marginBottom: '40px',
+            fontFamily: 'Poppins, sans-serif', fontSize: '15px',
+            color: '#888', lineHeight: 1.8, marginBottom: '40px',
           }}
         >
           Get the latest menu updates, exclusive deals, and healthy eating tips delivered straight to your inbox. No spam, ever.
@@ -84,14 +65,10 @@ export default function Subscribe() {
           <div
             className="reveal"
             style={{
-              background: '#FFF5F4',
-              border: '2px solid #F07167',
-              borderRadius: '16px',
-              padding: '24px 40px',
-              fontFamily: 'Poppins, sans-serif',
-              fontSize: '16px',
-              color: '#F07167',
-              fontWeight: 600,
+              background: '#FFF5F4', border: '2px solid #F07167',
+              borderRadius: '16px', padding: '24px 40px',
+              fontFamily: 'Poppins, sans-serif', fontSize: '16px',
+              color: '#F07167', fontWeight: 600,
             }}
           >
             🎉 Thank you for subscribing! Stay tuned for delicious updates.
@@ -99,18 +76,7 @@ export default function Subscribe() {
         ) : (
           <form
             onSubmit={handleSubmit}
-            className="reveal reveal-delay-2"
-            style={{
-              display: 'flex',
-              gap: '0',
-              maxWidth: '520px',
-              margin: '0 auto',
-              background: '#fff',
-              borderRadius: '50px',
-              padding: '6px 6px 6px 24px',
-              boxShadow: '0 4px 30px rgba(0,0,0,0.1)',
-              border: '1px solid rgba(240,113,103,0.15)',
-            }}
+            className="reveal reveal-delay-2 subscribe-form"
           >
             <input
               type="email"
@@ -118,27 +84,12 @@ export default function Subscribe() {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email address..."
               required
-              style={{
-                flex: 1,
-                border: 'none',
-                outline: 'none',
-                fontFamily: 'Poppins, sans-serif',
-                fontSize: '14px',
-                color: '#333',
-                background: 'transparent',
-                minWidth: 0,
-              }}
+              className="subscribe-input"
             />
             <button
               type="submit"
               className="btn-primary"
-              style={{
-                width: '160px',
-                height: '44px',
-                borderRadius: '40px',
-                flexShrink: 0,
-                fontSize: '14px',
-              }}
+              style={{ borderRadius: '40px', flexShrink: 0, fontSize: '14px' }}
             >
               Subscribe
             </button>

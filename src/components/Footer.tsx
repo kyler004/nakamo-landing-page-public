@@ -1,7 +1,7 @@
 export default function Footer() {
   const footerLinks = {
     Features: ['Ordering', 'Menu', 'Delivery', 'Pricing'],
-    ['Our Team']: ['Careers', 'Blog', 'FAQ', 'Support'],
+    'Our Team': ['Careers', 'Blog', 'FAQ', 'Support'],
     Contact: ['info@nakamo.com', 'support@nakamo.com', '+1 (555) 123-4567'],
   };
 
@@ -44,147 +44,117 @@ export default function Footer() {
         color: '#fff',
       }}
     >
-      <div
-        style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          display: 'grid',
-          gridTemplateColumns: '2fr 1fr 1fr 1fr',
-          gap: '48px',
-          marginBottom: '60px',
-        }}
-      >
-        {/* Brand column */}
-        <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px' }}>
-            <div
-              style={{
-                width: '36px',
-                height: '36px',
-                background: 'rgba(255,255,255,0.25)',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/>
-              </svg>
-            </div>
-            <span style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700, fontSize: '22px' }}>
-              Nakamo
-            </span>
-          </div>
-          <p style={{ fontFamily: 'Poppins, sans-serif', fontSize: '14px', lineHeight: 1.9, opacity: 0.85, maxWidth: '260px', marginBottom: '28px' }}>
-            We bring you the freshest, most delicious healthy food delivered to your door. Quality you can taste, health you can feel.
-          </p>
-          {/* Social icons */}
-          <div style={{ display: 'flex', gap: '12px' }}>
-            {socialLinks.map((s) => (
-              <a
-                key={s.name}
-                href={s.href}
-                aria-label={s.name}
+      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        <div className="footer-grid">
+          {/* Brand column */}
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px' }}>
+              <div
                 style={{
-                  width: '38px',
-                  height: '38px',
-                  background: 'rgba(255,255,255,0.2)',
-                  borderRadius: '10px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#fff',
-                  textDecoration: 'none',
-                  transition: 'background 0.3s ease, transform 0.3s ease',
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.35)';
-                  (e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)';
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.2)';
-                  (e.currentTarget as HTMLElement).style.transform = 'translateY(0)';
+                  width: '36px', height: '36px',
+                  background: 'rgba(255,255,255,0.25)', borderRadius: '50%',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
                 }}
               >
-                {s.icon}
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/>
+                </svg>
+              </div>
+              <span style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700, fontSize: '22px' }}>
+                Nakamo
+              </span>
+            </div>
+            <p style={{ fontFamily: 'Poppins, sans-serif', fontSize: '14px', lineHeight: 1.9, opacity: 0.85, maxWidth: '260px', marginBottom: '28px' }}>
+              We bring you the freshest, most delicious healthy food delivered to your door. Quality you can taste, health you can feel.
+            </p>
+            <div style={{ display: 'flex', gap: '12px' }}>
+              {socialLinks.map((s) => (
+                <a
+                  key={s.name}
+                  href={s.href}
+                  aria-label={s.name}
+                  style={{
+                    width: '38px', height: '38px',
+                    background: 'rgba(255,255,255,0.2)', borderRadius: '10px',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    color: '#fff', textDecoration: 'none',
+                    transition: 'background 0.3s ease, transform 0.3s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.35)';
+                    (e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)';
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.2)';
+                    (e.currentTarget as HTMLElement).style.transform = 'translateY(0)';
+                  }}
+                >
+                  {s.icon}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Link columns */}
+          {Object.entries(footerLinks).map(([title, links]) => (
+            <div key={title}>
+              <h4 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700, fontSize: '16px', marginBottom: '20px' }}>
+                {title}
+              </h4>
+              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                {links.map((link) => (
+                  <li key={link}>
+                    <a
+                      href="#"
+                      style={{
+                        fontFamily: 'Poppins, sans-serif', fontSize: '14px',
+                        color: 'rgba(255,255,255,0.8)', textDecoration: 'none',
+                        transition: 'color 0.2s ease',
+                      }}
+                      onMouseEnter={(e) => { (e.target as HTMLElement).style.color = '#fff'; }}
+                      onMouseLeave={(e) => { (e.target as HTMLElement).style.color = 'rgba(255,255,255,0.8)'; }}
+                    >
+                      {link}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        {/* Bottom bar */}
+        <div
+          style={{
+            borderTop: '1px solid rgba(255,255,255,0.2)',
+            paddingTop: '28px',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            flexWrap: 'wrap',
+            gap: '12px',
+          }}
+        >
+          <p style={{ fontFamily: 'Poppins, sans-serif', fontSize: '13px', opacity: 0.75 }}>
+            © {new Date().getFullYear()} Nakamo. All rights reserved.
+          </p>
+          <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
+            {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map((item) => (
+              <a
+                key={item}
+                href="#"
+                style={{
+                  fontFamily: 'Poppins, sans-serif', fontSize: '13px',
+                  color: 'rgba(255,255,255,0.75)', textDecoration: 'none',
+                  transition: 'color 0.2s',
+                }}
+                onMouseEnter={(e) => { (e.target as HTMLElement).style.color = '#fff'; }}
+                onMouseLeave={(e) => { (e.target as HTMLElement).style.color = 'rgba(255,255,255,0.75)'; }}
+              >
+                {item}
               </a>
             ))}
           </div>
-        </div>
-
-        {/* Link columns */}
-        {Object.entries(footerLinks).map(([title, links]) => (
-          <div key={title}>
-            <h4
-              style={{
-                fontFamily: 'Poppins, sans-serif',
-                fontWeight: 700,
-                fontSize: '16px',
-                marginBottom: '20px',
-              }}
-            >
-              {title}
-            </h4>
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              {links.map((link) => (
-                <li key={link}>
-                  <a
-                    href="#"
-                    style={{
-                      fontFamily: 'Poppins, sans-serif',
-                      fontSize: '14px',
-                      color: 'rgba(255,255,255,0.8)',
-                      textDecoration: 'none',
-                      transition: 'color 0.2s ease, paddingLeft 0.2s ease',
-                    }}
-                    onMouseEnter={(e) => { (e.target as HTMLElement).style.color = '#fff'; }}
-                    onMouseLeave={(e) => { (e.target as HTMLElement).style.color = 'rgba(255,255,255,0.8)'; }}
-                  >
-                    {link}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-
-      {/* Bottom bar */}
-      <div
-        style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          borderTop: '1px solid rgba(255,255,255,0.2)',
-          paddingTop: '28px',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          flexWrap: 'wrap',
-          gap: '12px',
-        }}
-      >
-        <p style={{ fontFamily: 'Poppins, sans-serif', fontSize: '13px', opacity: 0.75 }}>
-          © {new Date().getFullYear()} Nakamo. All rights reserved.
-        </p>
-        <div style={{ display: 'flex', gap: '24px' }}>
-          {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map((item) => (
-            <a
-              key={item}
-              href="#"
-              style={{
-                fontFamily: 'Poppins, sans-serif',
-                fontSize: '13px',
-                color: 'rgba(255,255,255,0.75)',
-                textDecoration: 'none',
-                transition: 'color 0.2s',
-              }}
-              onMouseEnter={(e) => { (e.target as HTMLElement).style.color = '#fff'; }}
-              onMouseLeave={(e) => { (e.target as HTMLElement).style.color = 'rgba(255,255,255,0.75)'; }}
-            >
-              {item}
-            </a>
-          ))}
         </div>
       </div>
     </footer>

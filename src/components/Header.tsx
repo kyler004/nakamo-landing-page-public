@@ -28,19 +28,9 @@ export default function Header() {
         transition: 'box-shadow 0.3s ease, background-color 0.3s ease',
       }}
     >
-      <div
-        style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          padding: '0 40px',
-          width: '100%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-        }}
-      >
+      <div className="header-inner">
         {/* Logo */}
-        <a href="#" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <a href="#" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
           <div
             style={{
               width: '36px',
@@ -69,10 +59,7 @@ export default function Header() {
         </a>
 
         {/* Desktop Nav */}
-        <nav
-          style={{ display: 'flex', gap: '32px', alignItems: 'center' }}
-          className="desktop-nav"
-        >
+        <nav className="desktop-nav">
           {navLinks.map((link, i) => (
             <a
               key={i}
@@ -111,10 +98,10 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Login Button */}
+        {/* Login Button - desktop only */}
         <a
           href="#"
-          className="btn-outline"
+          className="btn-outline header-login-desktop"
           style={{ width: '100px', height: '40px', fontSize: '14px' }}
         >
           Login
@@ -123,19 +110,12 @@ export default function Header() {
         {/* Mobile Hamburger */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          style={{
-            display: 'none',
-            background: 'none',
-            border: 'none',
-            cursor: 'pointer',
-            padding: '8px',
-          }}
           className="mobile-menu-btn"
           aria-label="Toggle menu"
         >
-          <div style={{ width: '22px', height: '2px', background: '#1A1A1A', marginBottom: '5px', transition: 'all 0.3s', transform: menuOpen ? 'rotate(45deg) translateY(7px)' : 'none' }} />
+          <div style={{ width: '22px', height: '2px', background: '#1A1A1A', transition: 'all 0.3s', transform: menuOpen ? 'rotate(45deg) translateY(7px)' : 'none' }} />
           <div style={{ width: '22px', height: '2px', background: '#1A1A1A', transition: 'all 0.3s', opacity: menuOpen ? 0 : 1 }} />
-          <div style={{ width: '22px', height: '2px', background: '#1A1A1A', marginTop: '5px', transition: 'all 0.3s', transform: menuOpen ? 'rotate(-45deg) translateY(-7px)' : 'none' }} />
+          <div style={{ width: '22px', height: '2px', background: '#1A1A1A', transition: 'all 0.3s', transform: menuOpen ? 'rotate(-45deg) translateY(-7px)' : 'none' }} />
         </button>
       </div>
 
@@ -148,11 +128,11 @@ export default function Header() {
             left: 0,
             right: 0,
             background: '#fff',
-            padding: '20px 40px',
+            padding: '24px 24px 28px',
             boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
             display: 'flex',
             flexDirection: 'column',
-            gap: '16px',
+            gap: '20px',
           }}
         >
           {navLinks.map((link, i) => (
@@ -171,7 +151,7 @@ export default function Header() {
               {link}
             </a>
           ))}
-          <a href="#" className="btn-primary" style={{ width: 'fit-content', paddingLeft: '24px', paddingRight: '24px', width: '120px' }}>
+          <a href="#" className="btn-primary" style={{ width: '120px' }}>
             Login
           </a>
         </div>

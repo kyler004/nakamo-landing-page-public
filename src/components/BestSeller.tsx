@@ -9,7 +9,6 @@ const products = [
     name: 'Kapi Susu Butter',
     price: '$12.99',
     rating: 4.8,
-    reviews: 24,
     tag: 'Instant',
     image: productToast,
     description: 'Creamy butter toast with fresh seasonal berries and a hint of vanilla cream. A perfect healthy breakfast treat.',
@@ -19,7 +18,6 @@ const products = [
     name: 'Roti Gambung Soklat',
     price: '$8.50',
     rating: 4.9,
-    reviews: 31,
     tag: 'Sweet',
     image: productRoti,
     description: 'Soft chocolate-filled rolled bread dusted with fine sugar coating. A favourite Indonesian bakery delight.',
@@ -29,7 +27,6 @@ const products = [
     name: 'Nasi Olie Special',
     price: '$15.99',
     rating: 4.7,
-    reviews: 18,
     tag: 'No MSG/G',
     image: productNasi,
     description: 'Our signature special rice bowl loaded with fresh vegetables, proteins, and a perfectly cooked sunny-side egg.',
@@ -70,52 +67,17 @@ export default function BestSeller() {
   }, []);
 
   return (
-    <section
-      id="menu"
-      style={{
-        padding: '100px 40px',
-        maxWidth: '1200px',
-        margin: '0 auto',
-      }}
-    >
+    <section id="menu" className="section-container">
       {/* Section header */}
-      <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-        <span
-          style={{
-            fontFamily: 'Poppins, sans-serif',
-            fontWeight: 600,
-            fontSize: '12px',
-            color: '#F07167',
-            textTransform: 'uppercase',
-            letterSpacing: '3px',
-            display: 'block',
-            marginBottom: '12px',
-          }}
-        >
-          Best Seller
-        </span>
-        <h2
-          style={{
-            fontFamily: 'Poppins, sans-serif',
-            fontWeight: 700,
-            fontSize: '40px',
-            color: '#1A1A1A',
-            lineHeight: 1.2,
-          }}
-        >
-          Our{' '}
-          <span style={{ color: '#F07167' }}>Best Seller</span>
+      <div className="section-header">
+        <span className="section-label">Best Seller</span>
+        <h2 className="section-title">
+          Our <span style={{ color: '#F07167' }}>Best Seller</span>
         </h2>
       </div>
 
       {/* Cards grid */}
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: '30px',
-        }}
-      >
+      <div className="cards-grid">
         {products.map((product, i) => (
           <article
             key={product.id}
@@ -143,30 +105,17 @@ export default function BestSeller() {
               <img
                 src={product.image}
                 alt={product.name}
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  transition: 'transform 0.4s ease',
-                }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.4s ease' }}
                 onMouseEnter={(e) => { (e.target as HTMLElement).style.transform = 'scale(1.05)'; }}
                 onMouseLeave={(e) => { (e.target as HTMLElement).style.transform = 'scale(1)'; }}
               />
-              {/* Tag badge */}
               <span
                 style={{
-                  position: 'absolute',
-                  top: '14px',
-                  left: '14px',
-                  background: '#F07167',
-                  color: '#fff',
-                  fontFamily: 'Poppins, sans-serif',
-                  fontWeight: 600,
-                  fontSize: '11px',
-                  padding: '4px 12px',
-                  borderRadius: '20px',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.5px',
+                  position: 'absolute', top: '14px', left: '14px',
+                  background: '#F07167', color: '#fff',
+                  fontFamily: 'Poppins, sans-serif', fontWeight: 600, fontSize: '11px',
+                  padding: '4px 12px', borderRadius: '20px',
+                  textTransform: 'uppercase', letterSpacing: '0.5px',
                 }}
               >
                 {product.tag}
@@ -179,7 +128,7 @@ export default function BestSeller() {
                 <h3 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700, fontSize: '18px', color: '#1A1A1A' }}>
                   {product.name}
                 </h3>
-                <span style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700, fontSize: '16px', color: '#F07167' }}>
+                <span style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 700, fontSize: '16px', color: '#F07167', flexShrink: 0, marginLeft: '8px' }}>
                   {product.price}
                 </span>
               </div>
