@@ -98,14 +98,23 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Login Button - desktop only */}
-        <a
-          href="#"
-          className="btn-outline header-login-desktop"
-          style={{ width: '100px', height: '40px', fontSize: '14px' }}
-        >
-          Login
-        </a>
+        {/* Actions - desktop only */}
+        <div className="header-actions header-actions-desktop">
+          <a
+            href="#"
+            className="btn-outline"
+            style={{ width: '90px', height: '40px', fontSize: '14px', borderRadius: '6px' }}
+          >
+            Login
+          </a>
+          <a
+            href="#"
+            className="btn-primary"
+            style={{ width: '100px', height: '40px', fontSize: '14px', borderRadius: '6px' }}
+          >
+            Sign Up
+          </a>
+        </div>
 
         {/* Mobile Hamburger */}
         <button
@@ -151,9 +160,14 @@ export default function Header() {
               {link}
             </a>
           ))}
-          <a href="#" className="btn-primary" style={{ width: '120px' }}>
-            Login
-          </a>
+          <div style={{ display: 'flex', gap: '12px' }}>
+            <a href="#" className="btn-outline" style={{ flex: 1, height: '44px' }}>
+              Login
+            </a>
+            <a href="#" className="btn-primary" style={{ flex: 1, height: '44px' }}>
+              Sign Up
+            </a>
+          </div>
         </div>
       )}
     </header>
