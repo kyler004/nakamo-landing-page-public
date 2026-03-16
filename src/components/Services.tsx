@@ -67,7 +67,7 @@ export default function Services() {
           {services.map((service, i) => (
             <div
               key={service.id}
-              ref={(el) => (cardsRef.current[i] = el)}
+              ref={(el) => { cardsRef.current[i] = el; }}
               className={`reveal reveal-delay-${i + 1}`}
               style={{
                 background: '#fff',

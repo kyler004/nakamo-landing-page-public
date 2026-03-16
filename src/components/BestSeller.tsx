@@ -81,7 +81,7 @@ export default function BestSeller() {
         {products.map((product, i) => (
           <article
             key={product.id}
-            ref={(el) => (cardsRef.current[i] = el)}
+            ref={(el) => { cardsRef.current[i] = el; }}
             className={`reveal reveal-delay-${i + 1}`}
             style={{
               background: '#fff',
